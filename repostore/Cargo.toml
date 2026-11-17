@@ -1,0 +1,20 @@
+[package]
+name = "repostore"
+description = "Local cache of git repositories: bare mirrors, and fast working clones made from them"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../README.md"
+
+[dependencies]
+dirs.workspace = true
+futures.workspace = true
+thiserror.workspace = true
+# No runtime flavor or macros: the embedding application picks its runtime.
+tokio = { workspace = true, features = ["fs", "process", "rt"] }
+
+[dev-dependencies]
+tempfile.workspace = true
+tokio = { workspace = true, features = ["macros", "net", "rt-multi-thread", "time"] }
